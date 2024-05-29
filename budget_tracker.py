@@ -1,3 +1,4 @@
 # Budget Tracker App
+# Want to track my expenses, income and make it interactive when inputting my numbers
 
-#is this connected?
+# Start from the larger picture then work the way down
