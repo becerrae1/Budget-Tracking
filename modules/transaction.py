@@ -9,6 +9,13 @@
                
 #            ]
 
+from enum import Enum
+
+class Category(Enum):
+    WANT = 'want'
+    NEED = 'need'
+    SAVINGS = 'savings'
+
 #Write a function that asks the user for transaction details (amount, category, date) and stores this data in a structured format.
 def get_new_transaction():
     #Ask user for transaction amount
@@ -25,9 +32,9 @@ def get_new_transaction():
     # Add functionality to check if its a valid number format
     date = input("What is today's date (e.g., YYYY-MM-DD)? ")
 
-    while date not :
-        print("Invalid date format please ensure it is in YYYY-MM-DD")
-        date = input("What is today's date?")
+    #while date not :
+    #    print("Invalid date format please ensure it is in YYYY-MM-DD")
+    #    date = input("What is today's date?")
 
     # Return a dictionary containing the transaction details
     return {
@@ -36,7 +43,9 @@ def get_new_transaction():
         "Date": date
     }
 
-get_new_transaction()
+transaction = get_new_transaction()
+
+print(transaction)
 
 
 
