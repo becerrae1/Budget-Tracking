@@ -1,14 +1,3 @@
-#store = input("What are you inputting?")
-
-#This is list of dictionaries set up
-#Want to add to this list by asking the user the key values and them inputting the values accordingly
-#Then update the list with the transaction
-#transactions = [{"Date": "2024-05-29", "Amount": 45.37, "Category": "Needs"},
-#               {"Date": "2024-05-30", "Amount": 21.34, "Category": "Wants"},
-#               {"Date": "2024-05-30", "Amount": 10.34, "Category": "Savings"}
-               
-#            ]
-
 from enum import Enum
 
 class Category(Enum):
@@ -22,7 +11,7 @@ def get_new_transaction():
     #Ask user for transaction amount
     amount = float(input('How much was it?'))
     # Ask user for transaction date
-    # Add functionality to check if its a valid number format
+    # Add functionality to check if its a valid number format - still haven't done
     date = input("What is today's date (e.g., YYYY-MM-DD)? ")
 
     # Validate category input
@@ -35,11 +24,6 @@ def get_new_transaction():
             print("Invalid Category. Please enter 'want', 'need' or 'savings'. ")
 
 
-
-    #while date not :
-    #    print("Invalid date format please ensure it is in YYYY-MM-DD")
-    #    date = input("What is today's date?")
-
     # Return a dictionary containing the transaction details
     return {
         "Amount": amount,
@@ -47,16 +31,26 @@ def get_new_transaction():
         "Date": date
     }
 
+#holds the separate transactions
 transactions = []
 
+#Function to add a transaction and append to the list
 def add_transaction():
     new_trans = get_new_transaction()
     transactions.append(new_trans)
     print("Transaction added successfully")
 
-#Example of invoking the function and storing it in a list for future use
-add_transaction()
-print(transactions)
+#While loop to continuosly ask the user to add a transaction or not
+while True:
+    add_transaction()
+
+    continue_input = input("Do you want to add another transaction? (y/n): ")
+    if continue_input != "y":
+        break
+#Prints final list after breaking the while loop
+print("Final list of Transactions: ")
+for trans in transactions:
+    print(trans)
 
 
 #print(transaction["Date"])
