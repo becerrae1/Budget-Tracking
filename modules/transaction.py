@@ -1,9 +1,24 @@
 from enum import Enum
+import json
 
 class Category(Enum):
     WANT = 'want'
     NEED = 'need'
     SAVINGS = 'savings'
+
+
+#Save the transaction to JSON to have memory to draw on
+#it is creating the JSON, but i should add a functionality to print current JSON file (current budget)
+def save_transactions(transactions):
+    with open('transactions.json', 'w') as f:
+        json.dump(transactions, f, indent=4)
+
+def load_transactions():
+    try:
+        with open('transactions.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
 
 #Write a function that asks the user for transaction details (amount, category, date) and stores this data in a structured format.
 def get_new_transaction():
@@ -46,6 +61,7 @@ while True:
 
     continue_input = input("Do you want to add another transaction? (y/n): ")
     if continue_input != "y":
+        save_transactions(transactions)
         break
 #Prints final list after breaking the while loop
 print("Final list of Transactions: ")
