@@ -19,6 +19,17 @@ def load_transactions():
             return json.load(f)
     except FileNotFoundError:
         return []
+    
+def display_transactions(transactions):
+    if not transactions:  # Check if the transactions list is empty
+        print("No transactions to display.")
+        return
+
+    for index, transaction in enumerate(transactions, 1):
+        print(f"Transaction {index}:")
+        print(f"  Date: {transaction['Date']}")
+        print(f"  Amount: {transaction['Amount']}")
+        print(f"  Category: {transaction['Category']}\n")
 
 #Write a function that asks the user for transaction details (amount, category, date) and stores this data in a structured format.
 def get_new_transaction():
@@ -47,7 +58,7 @@ def get_new_transaction():
     }
 
 #holds the separate transactions
-transactions = []
+transactions = load_transactions()
 
 #Function to add a transaction and append to the list
 def add_transaction():
@@ -57,12 +68,16 @@ def add_transaction():
 
 #While loop to continuosly ask the user to add a transaction or not
 while True:
-    add_transaction()
-
-    continue_input = input("Do you want to add another transaction? (y/n): ")
-    if continue_input != "y":
-        save_transactions(transactions)
-        break
+    choice = input("What would you like view current budget list (a) or add a new transaction (b)")
+    
+    if choice == "a":
+        add_transaction()
+        continue_input = input("Do you want to add another transaction? (y/n): ")
+        if continue_input != "y":
+            save_transactions(transactions)
+            break
+    if choice == "v":
+        display_transactions(transactions)
 #Prints final list after breaking the while loop
 print("Final list of Transactions: ")
 for trans in transactions:

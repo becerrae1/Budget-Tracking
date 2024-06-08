@@ -8,5 +8,30 @@
         "Amount": 1992.0,
         "Category": "savings",
         "Date": "2024-05-23"
+    },
+    {
+        "Amount": 25.0,
+        "Category": "want",
+        "Date": "2024-06-07"
+    },
+    {
+        "Amount": 100.0,
+        "Category": "savings",
+        "Date": "2024-06-06"
+    },
+    {
+        "Amount": 69.0,
+        "Category": "need",
+        "Date": "2024-05-23"
+    },
+    {
+        "Amount": 56.0,
+        "Category": "savings",
+        "Date": "2024-06-01"
+    },
+    {
+        "Amount": 2.0,
+        "Category": "need",
+        "Date": "3824"
     }
 ]
