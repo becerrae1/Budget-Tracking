@@ -33,5 +33,10 @@
         "Amount": 2.0,
         "Category": "need",
         "Date": "3824"
+    },
+    {
+        "Amount": 10000.0,
+        "Category": "want",
+        "Date": "2024-06-08"
     }
 ]
